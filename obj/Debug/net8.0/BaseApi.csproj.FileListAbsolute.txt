@@ -118,3 +118,6 @@ C:\Users\ejati\OneDrive\Desktop\C#\BaseApi\BaseApi\bin\Debug\net8.0\runtimes\win
 C:\Users\ejati\OneDrive\Desktop\C#\BaseApi\BaseApi\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
 C:\Users\ejati\OneDrive\Desktop\C#\BaseApi\BaseApi\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
 C:\Users\ejati\OneDrive\Desktop\C#\BaseApi\BaseApi\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\ejati\OneDrive\Desktop\C#\BaseApi\BaseApi\obj\Debug\net8.0\BaseApi.sourcelink.json
+C:\Users\ejati\OneDrive\Desktop\C#\BaseApi\BaseApi\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\ejati\OneDrive\Desktop\C#\BaseApi\BaseApi\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

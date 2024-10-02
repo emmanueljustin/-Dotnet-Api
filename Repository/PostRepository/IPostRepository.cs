@@ -3,9 +3,9 @@ using BaseApi.Models;
 
 namespace BaseApi.Repository.PostRepository
 {
-  public interface IPostRepository
-  {
-    ICollection<Post> GetPosts();
-    
-  }
+    public interface IPostRepository
+    {
+        ICollection<Post> GetPosts();
+
+    }
 }
