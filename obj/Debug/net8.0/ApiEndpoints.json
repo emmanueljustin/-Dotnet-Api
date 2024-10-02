@@ -2,14 +2,92 @@
   {
     "ContainingType": "BaseApi.Controllers.PostController",
     "Method": "GetPosts",
-    "RelativePath": "api/Post",
+    "RelativePath": "api/Post/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BaseApi.Dto.PostDto, BaseApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BaseApi.Dto.Response.GetPostResponseDto, BaseApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BaseApi.Controllers.PostController",
+    "Method": "CreatePost",
+    "RelativePath": "api/Post/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postRequest",
+        "Type": "BaseApi.Dto.Request.CreatePostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BaseApi.Models.Post",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BaseApi.Controllers.PostController",
+    "Method": "DeletePost",
+    "RelativePath": "api/Post/delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "BaseApi.Dto.Request.IdRequestBodyDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BaseApi.Dto.Response.ResponseWithNoDataDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BaseApi.Controllers.PostController",
+    "Method": "UpdatePost",
+    "RelativePath": "api/Post/update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatePost",
+        "Type": "BaseApi.Dto.Request.UpdatePostRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BaseApi.Dto.Response.ResponseWithNoDataDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

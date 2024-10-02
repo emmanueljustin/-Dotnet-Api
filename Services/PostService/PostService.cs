@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BaseApi.Dto;
+using BaseApi.Dto.Request;
 using BaseApi.Models;
 using BaseApi.Repository.PostRepository;
-using BaseApi.Services.PostService;
 
 namespace BaseApi.Services.PostService
 {
@@ -20,6 +20,21 @@ namespace BaseApi.Services.PostService
         {
             var posts = _mapper.Map<List<PostDto>>(_postRepository.GetPosts());
             return posts;
+        }
+
+        public Post CreatePost(Post post)
+        {
+            return _postRepository.CreatePost(post);
+        }
+
+        public async Task<bool> UpdatePost(UpdatePostRequestDto updatePost)
+        {
+            return await _postRepository.UpdatePost(updatePost);
+        }
+
+        public bool DeletePost(int Id)
+        {
+            return _postRepository.DeletePost(Id);
         }
     }
 }
