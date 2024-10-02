@@ -1,9 +1,9 @@
 using System;
+using BaseApi.Dto;
 using BaseApi.Models;
 using BaseApi.Repository.UserRepository;
-using Microsoft.AspNetCore.Http.HttpResults;
+using BaseApi.Services.UserService;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BaseApi.Controllers
 {
@@ -11,38 +11,36 @@ namespace BaseApi.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
         public IActionResult GetUsers()
         {
-            var users = _userRepository.GetUsers();
+            var users = _userService.GetUsers();
 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var responses = users.Select(user => new User
+            var responses = users.Select(user => new UserDto
             {
                 Id = user.Id,
-                UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Email = user.Email,
-                Age = user.Age,
-                Gender = user.Gender,
-                Posts = user.Posts.Select(post => new Post
-                {
-                    Id = post.Id,
-                    Content = post.Content,
-                }).ToList()
+                //Age = user.Age,
+                //Gender = user.Gender,
+                //Posts = user.Posts.Select(post => new Post
+                //{
+                //    Id = post.Id,
+                //    Content = post.Content,
+                //}).ToList()
             }).ToList();
 
             return Ok(responses);

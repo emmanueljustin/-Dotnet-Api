@@ -1,8 +1,7 @@
 using System;
 using AutoMapper;
 using BaseApi.Dto;
-using BaseApi.Models;
-using BaseApi.Repository.PostRepository;
+using BaseApi.Services.PostService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BaseApi.Controllers
@@ -13,27 +12,23 @@ namespace BaseApi.Controllers
     public class PostController : Controller
     {
 
-        private readonly IPostRepository _postRepository;
-        private readonly IMapper _mapper;
+        private readonly IPostService _postService;
 
-        public PostController(IPostRepository postRepository, IMapper mapper)
+        public PostController(IPostService postService)
         {
-            _postRepository = postRepository;
-            _mapper = mapper;
+            _postService = postService;
         }
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Post>))]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<PostDto>))]
         public IActionResult GetPosts()
         {
-            var posts = _mapper.Map<List<PostDto>>(_postRepository.GetPosts());
+            var posts = _postService.GetPosts();
 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-
 
             var responses = posts.Select(post => new PostDto
             {
