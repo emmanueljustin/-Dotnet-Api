@@ -1,6 +1,8 @@
 using BaseApi.Data;
+using BaseApi.Repository.GoalRepository;
 using BaseApi.Repository.PostRepository;
 using BaseApi.Repository.UserRepository;
+using BaseApi.Services.GoalService;
 using BaseApi.Services.PostService;
 using BaseApi.Services.UserService;
 using Microsoft.EntityFrameworkCore;
@@ -15,10 +17,12 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IGoalRepository, GoalRepository>();
 
 // Services
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IGoalService, GoalService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

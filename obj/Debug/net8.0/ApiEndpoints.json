@@ -1,5 +1,57 @@
 [
   {
+    "ContainingType": "BaseApi.Controllers.GoalController",
+    "Method": "GetGoals",
+    "RelativePath": "api/Goal/get",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paginationRequest",
+        "Type": "BaseApi.Dto.PaginationDto.Request.PaginationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BaseApi.Dto.Response.GetGoalResponseDto\u00601[[BaseApi.Dto.PaginationDto.Response.PaginatedResponseDto\u00601[[BaseApi.Models.Goal, BaseApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], BaseApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], BaseApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BaseApi.Controllers.GoalController",
+    "Method": "SetGoal",
+    "RelativePath": "api/Goal/set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payload",
+        "Type": "BaseApi.Dto.Request.SetGoalRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BaseApi.Models.Goal, BaseApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "BaseApi.Controllers.PostController",
     "Method": "GetPosts",
     "RelativePath": "api/Post/all",
