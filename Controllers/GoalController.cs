@@ -5,6 +5,7 @@ using BaseApi.Dto.Response;
 using BaseApi.Models;
 using BaseApi.Services.GoalService;
 using Microsoft.AspNetCore.Mvc;
+using MySqlX.XDevAPI.Common;
 
 namespace BaseApi.Controllers
 {
@@ -57,6 +58,70 @@ namespace BaseApi.Controllers
             };
 
             var response = _goalService.SetGoal(goal);
+
+            return Ok(response);
+        }
+
+        [HttpPost("update")]
+        public async Task<IActionResult> UpdateGoal([FromBody] Goal Goal)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _goalService.UpdateGoal(Goal);
+
+            ResponseWithNoDataDto response;
+
+            if (result)
+            {
+                response = new ResponseWithNoDataDto
+                {
+                    Status = "ok",
+                    Message = "Post are succesfully updated."
+                };
+            }
+            else
+            {
+                response = new ResponseWithNoDataDto
+                {
+                    Status = "err",
+                    Message = "Oops! the data you are trying to modify does not exist."
+                };
+            }
+
+            return Ok(response);
+        }
+
+        [HttpPost("delete")]
+        public IActionResult DeleteGoal([FromBody] IdRequestBodyDto payload)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = _goalService.DeleteGoal(payload.Id);
+
+            ResponseWithNoDataDto response;
+
+            if (result)
+            {
+                response = new ResponseWithNoDataDto
+                {
+                    Status = "ok",
+                    Message = "Goal are succesfully deleted."
+                };
+            }
+            else
+            {
+                response = new ResponseWithNoDataDto
+                {
+                    Status = "err",
+                    Message = "Oops! the data you are trying to modify does not exist."
+                };
+            }
 
             return Ok(response);
         }

@@ -40,5 +40,37 @@ namespace BaseApi.Repository.GoalRepository
 
             return goal;
         }
+
+        public async Task<bool> UpdateGoal(Goal Goal)
+        {
+            var goal = await _context.Goals.FindAsync(Goal.Id);
+            if (goal == null)
+            {
+                return false;
+            }
+
+            goal.GoalName = Goal.GoalName;
+            goal.GoalDescription = Goal.GoalDescription;
+            goal.Achieved = Goal.Achieved;
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public bool DeleteGoal(int Id)
+        {
+            var goal = _context.Goals.Find(Id);
+
+            if (goal == null)
+            {
+                return false;
+            }
+
+            _context.Goals.Remove(goal);
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

@@ -9,5 +9,7 @@ namespace BaseApi.Repository.GoalRepository
     {
         public Task<PaginatedResponseDto<Goal>> GetGoals(PaginationRequestDto paginationRequest);
         public Goal SetGoal(Goal goal);
+        public Task<bool> UpdateGoal(Goal Goal);
+        public bool DeleteGoal(int Id);
     }
 }

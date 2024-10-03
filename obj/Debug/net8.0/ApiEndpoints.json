@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "BaseApi.Controllers.GoalController",
+    "Method": "DeleteGoal",
+    "RelativePath": "api/Goal/delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payload",
+        "Type": "BaseApi.Dto.Request.IdRequestBodyDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BaseApi.Controllers.GoalController",
     "Method": "GetGoals",
     "RelativePath": "api/Goal/get",
     "HttpMethod": "POST",
@@ -50,6 +66,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "BaseApi.Controllers.GoalController",
+    "Method": "UpdateGoal",
+    "RelativePath": "api/Goal/update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Goal",
+        "Type": "BaseApi.Models.Goal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BaseApi.Controllers.PostController",
