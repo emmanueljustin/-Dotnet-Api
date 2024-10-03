@@ -1,4 +1,5 @@
 using BaseApi.Data;
+using BaseApi.Extensions;
 using BaseApi.Repository.GoalRepository;
 using BaseApi.Repository.PostRepository;
 using BaseApi.Repository.UserRepository;
@@ -14,15 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-// Repositories
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IPostRepository, PostRepository>();
-builder.Services.AddScoped<IGoalRepository, GoalRepository>();
-
-// Services
-builder.Services.AddScoped<IPostService, PostService>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IGoalService, GoalService>();
+// Contains all of the Repo and Service scope
+builder.Services.ConfigureServices();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
